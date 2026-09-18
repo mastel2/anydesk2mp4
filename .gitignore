@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.mp4
+*.mkv
+*.mov
+*.webm
+*.anydesk
+
+# the bundled LGPL FFmpeg (~165 MB) - run tools/fetch_ffmpeg.py to get it
+bin/
+
+# build output
+build/
+dist/
+*.spec
+*.msix
+
+# SDK build tools (NuGet Microsoft.Windows.SDK.BuildTools) - fetched, not committed
+tools/sdk/

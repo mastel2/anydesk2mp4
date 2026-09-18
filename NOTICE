@@ -1,0 +1,28 @@
+Recording Converter for AnyDesk
+Copyright 2026 KEEP_DARK (https://www.keep-dark.com/works/)
+
+This product includes software developed by KEEP_DARK.
+
+This product is an independent tool. It is not affiliated with, endorsed by,
+or sponsored by AnyDesk Software GmbH. "AnyDesk" is a trademark of its owner
+and is used here only to describe what this tool works with.
+
+This product does not contain, modify, or redistribute any AnyDesk software.
+It relies on an AnyDesk client installed by the user to play the user's own
+recordings.
+
+--------------------------------------------------------------------------
+FFmpeg
+
+This product bundles unmodified FFmpeg binaries (ffmpeg.exe, ffprobe.exe and
+the accompanying libav* / libsw* DLLs) and runs them as separate programs.
+
+FFmpeg is licensed under the GNU Lesser General Public License version 3 or
+later (LGPL v3+). The full licence text is in bin/FFMPEG-LICENSE.txt.
+
+The build shipped here is the LGPL configuration from
+https://github.com/BtbN/FFmpeg-Builds, produced from the FFmpeg sources at
+https://git.ffmpeg.org/ffmpeg.git . The binaries are unmodified; the exact
+build and its sources can be obtained from those two addresses, and the
+bundled DLLs may be replaced with your own LGPL-compatible build by putting
+them in the bin folder next to the executables.

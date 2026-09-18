@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap uap3 rescap">
+
+  <!-- Name / Publisher must match what Partner Center issues after the name is reserved
+       (Product identity). __VERSION__ is filled in by tools/pack_msix.ps1. -->
+  <Identity Name="__IDENTITY_NAME__" Publisher="__PUBLISHER__" Version="__VERSION__"
+            ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Recording Converter for AnyDesk</DisplayName>
+    <PublisherDisplayName>KEEP_DARK</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Convert AnyDesk session recordings (.anydesk) to MP4, MKV, MOV or WebM. Runs entirely on your PC.</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-US" />
+    <Resource Language="th-TH" />
+    <Resource Language="zh-CN" />
+  </Resources>
+
+  <Applications>
+    <Application Id="RecordingConverter"
+                 Executable="app\Recording Converter for AnyDesk.exe"
+                 EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Recording Converter for AnyDesk"
+        Description="Convert AnyDesk session recordings to MP4"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"
+                         Square71x71Logo="Assets\Square71x71Logo.png"
+                         Square310x310Logo="Assets\Square310x310Logo.png" />
+      </uap:VisualElements>
+
+      <Extensions>
+        <!-- "Convert to MP4" when a .anydesk file is right-clicked. A packaged app
+             declares this here instead of writing to the registry itself. -->
+        <uap3:Extension Category="windows.fileTypeAssociation">
+          <uap3:FileTypeAssociation Name="anydeskrecording">
+            <uap:DisplayName>AnyDesk session recording</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.anydesk</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap3:FileTypeAssociation>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Full trust: the program drives the user's own AnyDesk player window and runs
+         FFmpeg. It makes no network connections. -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
